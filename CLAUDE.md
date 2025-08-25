@@ -34,6 +34,23 @@ cd backend && uv run pytest tests/test_ai_generator.py
 cd backend && uv run pytest tests/test_vector_store.py
 ```
 
+### Code Quality Tools
+```bash
+# Format code with Black and sort imports with isort
+chmod +x format.sh
+./format.sh
+
+# Run all quality checks (linting, type checking, formatting)
+chmod +x lint.sh
+./lint.sh
+
+# Individual quality checks
+uv run black --check backend/ main.py     # Check formatting
+uv run isort --check-only backend/ main.py # Check import sorting
+uv run flake8 backend/ main.py            # Linting
+uv run mypy backend/ main.py              # Type checking
+```
+
 ### Accessing the Application
 - Web Interface: http://localhost:8000
 - API Documentation: http://localhost:8000/docs
